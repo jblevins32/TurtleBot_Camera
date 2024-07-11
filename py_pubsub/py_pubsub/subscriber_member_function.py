@@ -25,8 +25,14 @@ class ImageSubscriber(Node):
             cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')  # Convert ROS Image to OpenCV image
             # You can now use OpenCV to process the cv_image
             # For example, you can display it using OpenCV:
-            cv2.imshow('Received Image', cv_image)
-            cv2.waitKey(1)  # Add a small delay to allow the image to be displayed
+            
+            # show image
+            # cv2.imshow('Received Image', cv_image)
+            
+            # save image
+            cv2.imwrite('received_image.jpg', cv_image)  # Update the path as needed
+
+            # cv2.waitKey(1)  # Add a small delay to allow the image to be displayed
         except CvBridgeError as e:
             self.get_logger().error('CvBridge Error: {0}'.format(e))
 

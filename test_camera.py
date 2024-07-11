@@ -19,6 +19,7 @@ def test_camera():
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
+    # Properly release the capture object
     cap.release()
     cv2.destroyAllWindows()
 
